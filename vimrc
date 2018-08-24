@@ -3,7 +3,7 @@
 
 " pathogen startup
 execute pathogen#infect()
-
+ 
 filetype on
 syntax on
 colorscheme dracula 
@@ -66,6 +66,16 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
 "surround (allows to use 's' motion) - no config here
 
+"CtrlP - TODO
+
+"window-swap: 
+"let g:windowswap_map_keys = 0 "prevent default bindings
+"nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+"nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+"nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+"YouCompleteMe - TODO
+
 "my own stuff:
 " exit insert mode on shift-enter
 :inoremap <S-CR> <Esc>
@@ -75,3 +85,5 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 " I like ctrl-6 myself (alone it switches to the previously used buffer, 
 " or #ctrl-6 switches to buffer number #).
 " Use :ls to list buffers, or a plugin like MiniBufExpl or BufExplorer.
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
