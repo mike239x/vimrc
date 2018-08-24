@@ -87,3 +87,8 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 " Use :ls to list buffers, or a plugin like MiniBufExpl or BufExplorer.
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+" new slipts appear to the right/down
+set splitbelow
+set splitright
+" press ctrl-d to get into console (press it again to get back into vim)
+nnoremap <C-d> :sh<cr>
