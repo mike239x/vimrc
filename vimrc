@@ -77,6 +77,8 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "YouCompleteMe - TODO
 
 "my own stuff:
+" $ sudo apt install vim-gtk
+" adds +xterm_clipboard so that one can use + and * registers
 " exit insert mode on shift-enter
 :inoremap <S-CR> <Esc>
 " allow hidden buffers
