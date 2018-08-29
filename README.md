@@ -35,30 +35,25 @@ my repo on vim-notes (link will be added later) or some proper guides from other
 3. I use pathogen as the packages manager. It looks super easy and
    doesn't require any configuring. I like easy things.
 
-4. To get CtrlP package up and running one needs `+ruby` flag in the vim
-   version and ruby itself. To get it one can write
-   
-   ```bash
-   sudo apt install ruby ruby-dev vim-nox;
-   ```
-
-5. To get registers `"+` and `"*` one needs `+xterm_clipboard` flag in the vim version.
+4. To get registers `"+` and `"*` one needs `+xterm_clipboard` flag in the vim version.
    This can be installed via
-
    ```bash
    sudo apt install vim-gtk
    ```
 
-6. To swap control and caps lock keys:
+5. To swap control and caps lock keys:
+
     1. Run
     ```bash
     sudo vim /etc/default/keyboard
     ```
     and edit `XKBOPTIONS="ctrl:swapcaps"`.
+
     2. Then, run
     ```bash
     /usr/bin/setxkbmap -option "ctrl:swapcaps"
     ```
+
     3. Reboot.
 
 
@@ -76,3 +71,13 @@ visit https://vimawesome.com/.
 * targets
 * vim-markdown by Gabriele Lana
 * YouCompleteMe (mostly used as the continuation of SuperTab, I guess)
+
+# Colorshemes
+
+Some of them are in `bundle` folder (as git submodules), and some are just 
+`.vim` files in `colors` folder.
+
+* jellybeans
+* gruvbox
+* dracula
+* molokai

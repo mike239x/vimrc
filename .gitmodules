@@ -22,3 +22,15 @@
 [submodule "bundle/vim-windowswap"]
 	path = bundle/vim-windowswap
 	url = https://github.com/wesq3/vim-windowswap
+[submodule "colors/vim"]
+	path = colors/vim
+	url = https://github.com/dracula/vim.git
+[submodule "colors/dracula"]
+	path = colors/dracula
+	url = https://github.com/dracula/vim.git
+[submodule "bundle/gruvbox"]
+	path = bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "bundle/jellybeans.vim"]
+	path = bundle/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git
