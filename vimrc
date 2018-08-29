@@ -30,17 +30,6 @@ set hlsearch
 "showcase matching paranthesis
 set showmatch
 
-"command-t plugin config
-"set wildignore+=*.log,*.sql,*.cache
-" to get this plugin to work one needs a ruby compatible vim
-" which for example can be installed via 
-" $ sudo apt-get install vim-nox;
-" one also needs ruby for that (I think it will be autoinstalled with vim-nox)
-" after that one should go to the plugin dir and run
-" $ rake make
-" B
-" to compile the entire thing
-
 "lightline plugin config
 set laststatus=2
 set noshowmode
@@ -68,13 +57,9 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
 "surround (allows to use 's' motion) - no config here
 
-"CtrlP - TODO
+"CtrlP - no config here
 
-"window-swap: 
-"let g:windowswap_map_keys = 0 "prevent default bindings
-"nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
-"nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
-"nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+"window-swap - no config here
 
 "targets - no config here
 

@@ -13,8 +13,8 @@ my repo on vim-notes (link will be added later) or some proper guides from other
     1. Create a `.vim` folder in your home (`~`) directory.
     2. Go into that folder and copy this git repo inside of the folder:
     ```bash
-    git clone http://mike239x/vimrc
-    git submodule update --init --recursive
+    $ git clone http://mike239x/vimrc
+    $ git submodule update --init --recursive
     ```
     
    Alternatively, don't do that. Just create you own `vimrc` file in there and
@@ -22,13 +22,13 @@ my repo on vim-notes (link will be added later) or some proper guides from other
 
 2. Add a link file so that vim can load your configuration:
     ```bash
-    ln -s ~/.vim/vimrc ~/.vimrc
+    $ ln -s ~/.vim/vimrc ~/.vimrc
     ```
 
 3. First things first, one should check what one has:
 
   ```bash 
-  vim --version 
+  $ vim --version 
   ``` 
   
   is your friend.
@@ -41,20 +41,20 @@ my repo on vim-notes (link will be added later) or some proper guides from other
 6. To get registers `"+` and `"*` one needs `+xterm_clipboard` flag in the vim version.
    This can be installed via
    ```bash
-   sudo apt install vim-gtk
+   $ sudo apt install vim-gtk
    ```
 
 7. To swap control and caps lock keys:
 
     1. Run
     ```bash
-    sudo vim /etc/default/keyboard
+    $ sudo vim /etc/default/keyboard
     ```
     and edit `XKBOPTIONS="ctrl:swapcaps"`.
 
     2. Then, run
     ```bash
-    /usr/bin/setxkbmap -option "ctrl:swapcaps"
+    $ /usr/bin/setxkbmap -option "ctrl:swapcaps"
     ```
 
     3. Reboot.
