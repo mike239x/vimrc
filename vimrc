@@ -76,6 +76,10 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 "nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
+"targets - no config here
+
+"vim-markdown - no config here (the only button is <leader>e)
+
 "YouCompleteMe - TODO
 
 "my own stuff:
@@ -101,3 +105,5 @@ nnoremap <leader>d :sh<CR>
 " TODO: make 3]f jump 3 tiimes (currently doesn't work)
 nnoremap <silent> ]f <CR>:exe search('{', "w")<CR>^
 nnoremap <silent> [f :exe search('{', "bw")<CR>^
+" for new buffers and new files with .md choose markdown highlighting
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
