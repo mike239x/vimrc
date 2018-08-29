@@ -14,17 +14,18 @@ my repo on vim-notes (link will be added later) or some proper guides from other
     2. Go into that folder and copy this git repo inside of the folder:
     ```bash
     git clone http://mike239x/vimrc
+    git submodule update --init --recursive
     ```
     
-    Alternatively, don't do that. Just create you own `vimrc` file in there and
-    initialize your own git in there.
-    3. TODO: Do some magic with git submodules maybe.
-    4. Add a link file so that vim can load your configuration:
+   Alternatively, don't do that. Just create you own `vimrc` file in there and
+   initialize your own git in there.
+
+2. Add a link file so that vim can load your configuration:
     ```bash
     ln -s ~/.vim/vimrc ~/.vimrc
     ```
 
-2. First things first, one should check what one has:
+3. First things first, one should check what one has:
 
   ```bash 
   vim --version 
@@ -32,16 +33,18 @@ my repo on vim-notes (link will be added later) or some proper guides from other
   
   is your friend.
 
-3. I use pathogen as the packages manager. It looks super easy and
+4. I use pathogen as the packages manager. It looks super easy and
    doesn't require any configuring. I like easy things.
 
-4. To get registers `"+` and `"*` one needs `+xterm_clipboard` flag in the vim version.
+5. YouCompleteMe plugin should be compiled, read the manual on how to do that.
+
+6. To get registers `"+` and `"*` one needs `+xterm_clipboard` flag in the vim version.
    This can be installed via
    ```bash
    sudo apt install vim-gtk
    ```
 
-5. To swap control and caps lock keys:
+7. To swap control and caps lock keys:
 
     1. Run
     ```bash
