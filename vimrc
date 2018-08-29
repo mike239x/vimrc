@@ -95,4 +95,9 @@ nnoremap <silent> <leader>l :nohl<CR><C-l>
 set splitbelow
 set splitright
 " press ctrl-d to get into console (press it again to get back into vim)
-nnoremap <leader>d :sh<cr>
+nnoremap <leader>d :sh<CR>
+" ]f, [f to go to the next/previous line with { on it.
+nnoremap <silent> ]f <CR>:call
+      \ search('{', "w")<CR>^
+nnoremap <silent> [f :call
+      \ search('{', "bw")<CR>^
