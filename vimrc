@@ -3,14 +3,16 @@
 
 " pathogen startup
 execute pathogen#infect()
- 
+
 filetype on
 syntax on
-colorscheme dracula 
+"colorscheme dracula 
 "colorscheme molokai 
+colorscheme jellybeans 
+"colorscheme vividchalk 
 set colorcolumn=90
 set number
-let mapleader=" "
+" let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
 "something useful
 set hidden
@@ -88,9 +90,9 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 " or #ctrl-6 switches to buffer number #).
 " Use :ls to list buffers, or a plugin like MiniBufExpl or BufExplorer.
 " <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <leader>l :nohl<CR><C-l>
 " new slipts appear to the right/down
 set splitbelow
 set splitright
 " press ctrl-d to get into console (press it again to get back into vim)
-nnoremap <C-d> :sh<cr>
+nnoremap <leader>d :sh<cr>
