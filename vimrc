@@ -107,3 +107,6 @@ nnoremap <silent> ]f <CR>:exe search('{', "w")<CR>^
 nnoremap <silent> [f :exe search('{', "bw")<CR>^
 " for new buffers and new files with .md choose markdown highlighting
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" save code folds on exit
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
