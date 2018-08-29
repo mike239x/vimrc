@@ -97,7 +97,7 @@ set splitright
 " press ctrl-d to get into console (press it again to get back into vim)
 nnoremap <leader>d :sh<CR>
 " ]f, [f to go to the next/previous line with { on it.
-nnoremap <silent> ]f <CR>:call
-      \ search('{', "w")<CR>^
-nnoremap <silent> [f :call
-      \ search('{', "bw")<CR>^
+" TODO: make it register as a jump
+" TODO: make 3]f jump 3 tiimes (currently doesn't work)
+nnoremap <silent> ]f <CR>:exe search('{', "w")<CR>^
+nnoremap <silent> [f :exe search('{', "bw")<CR>^
