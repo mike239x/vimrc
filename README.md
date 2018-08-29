@@ -70,9 +70,9 @@ visit https://vimawesome.com/.
 * lightline
 * NERDcommenter
 * NERDtree
-* surrond
+* vim-surround
 * CtrlP by ctrlp.vim
-* window-swap
+* vim-windowswap
 * targets
 * vim-markdown by Gabriele Lana
 * YouCompleteMe (mostly used as the continuation of SuperTab, I guess)
