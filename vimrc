@@ -95,3 +95,5 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " save code folds on exit
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+" easier way to go up a line (equivalent to - and to k^)
+nnoremap <leader><CR> -
