@@ -100,3 +100,4 @@ nnoremap <leader><CR> -
 " an alternative to backspace
 " (go back a symbol, jumping up a line if reched the line start)
 nnoremap <C-@> <BACKSPACE>
+inoremap <C-S> <Esc>:w<CR>
