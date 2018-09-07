@@ -96,7 +96,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 " easier way to go up a line (equivalent to - and to k^)
-nnoremap <S-CR> -
+nnoremap <leader><CR> -
 " an alternative to backspace
 " (go back a symbol, jumping up a line if reched the line start)
-nnoremap <S-SPACE> <BACKSPACE>
+nnoremap <C-@> <BACKSPACE>
