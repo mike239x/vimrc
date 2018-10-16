@@ -11,7 +11,7 @@ syntax on
 colorscheme jellybeans 
 "colorscheme vividchalk 
 set colorcolumn=90
-set number
+set number relativenumber
 " let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
 "something useful
@@ -66,14 +66,14 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "vim-markdown - no config here (the only button is <leader>e)
 
 "YouCompleteMe - TODO
+" make python autocompletion help tabs go away after you are done
+autocmd CompleteDone * pclose
 
 "my own stuff:
 " $ sudo apt install vim-gtk
 " adds +xterm_clipboard so that one can use + and * registers
 " exit insert mode on shift-enter
 :inoremap <S-CR> <Esc>
-" allow hidden buffers
-:set hidden
 " Use :bn, :bp, :b #, :b name, and ctrl-6 to switch between buffers. 
 " I like ctrl-6 myself (alone it switches to the previously used buffer, 
 " or #ctrl-6 switches to buffer number #).
@@ -111,3 +111,17 @@ command -nargs=0 -bar Update if &modified
                            \|    endif
                            \|endif
 inoremap <C-S> <Esc>:Update<CR>
+" highlight the current line
+set cursorline
+" <leader>tn - Toggle Numbers - toggle between relative/absolute numbers
+nnoremap <silent> <leader>tn :set relativenumber!<CR>
+" set up folding base on markers
+set foldmethod=marker
+set foldmarker=┏╸,╺┛
+" drop the ctrl-p in the insert mode (pastes some garbage)
+inoremap <C-p> <Nop>
+" <F3> will source current file
+nnoremap <F3> :source %<CR>
+" <S-Y> copies till the end of the line, similar to <S-C> and <S-D>
+nnoremap <S-Y> y$
+nnoremap gb gT
