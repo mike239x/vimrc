@@ -1,3 +1,13 @@
+"python with virtualenv support
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
+EOF
+
 " based on http://marcgg.com/blog/2016/03/01/vimrc-example/
 " with some additional plugins takes from the top pages of https://vimawesome.com/
 
@@ -10,13 +20,16 @@ syntax on
 "colorscheme molokai 
 colorscheme jellybeans 
 "colorscheme vividchalk 
-set colorcolumn=90
+set colorcolumn=120
+set textwidth=120
 set number relativenumber
 " let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
 "something useful
 set hidden
 set history=100
+" saves files as is
+set binary
 "indentation
 filetype indent on
 set nowrap
@@ -66,6 +79,7 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 "vim-markdown - no config here (the only button is <leader>e)
 
 "YouCompleteMe - TODO
+set encoding=utf-8
 " make python autocompletion help tabs go away after you are done
 autocmd CompleteDone * pclose
 
@@ -103,7 +117,7 @@ nnoremap <C-@> <BACKSPACE>
 " A command for saving a file:
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
-command -nargs=0 -bar Update if &modified 
+command! -nargs=0 -bar Update if &modified 
                            \|    if empty(bufname('%'))
                            \|        browse confirm write
                            \|    else
@@ -125,3 +139,4 @@ nnoremap <F3> :source %<CR>
 " <S-Y> copies till the end of the line, similar to <S-C> and <S-D>
 nnoremap <S-Y> y$
 nnoremap gb gT
+inoremap <leader>. ->

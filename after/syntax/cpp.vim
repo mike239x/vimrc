@@ -1689,7 +1689,7 @@ if !exists("cpp_no_cpp17")
     syntax keyword cppSTLfunction parent_path
     " syntax keyword cppSTLfunction filename
     syntax keyword cppSTLfunction stem
-    syntax keyword cppSTLfunction extension
+    " syntax keyword cppSTLfunction extension
     syntax keyword cppSTLfunction has_root_name
     syntax keyword cppSTLfunction has_root_directory
     syntax keyword cppSTLfunction has_root_path
