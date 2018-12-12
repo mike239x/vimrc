@@ -47,7 +47,10 @@ set showmatch
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
+      \ },
+      \ 'colorscheme': 'wombat'
       \ }
 
 "NERDcommenter plugin config
@@ -105,6 +108,7 @@ nnoremap <leader>d :sh<CR>
 nnoremap <silent> ]f <CR>:exe search('{', "w")<CR>^
 nnoremap <silent> [f :exe search('{', "bw")<CR>^
 " for new buffers and new files with .md choose markdown highlighting
+" TODO check if this even works
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " save code folds on exit
 autocmd BufWinLeave *.* mkview
