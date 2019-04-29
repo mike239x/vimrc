@@ -51,17 +51,9 @@ let g:lightline = {
 filetype plugin on
 
 "NERDtree plugin config
-" hit right key to open a node
-let NERDTreeMapActivateNode='<C-J>'
-" display hidden files
-let NERDTreeShowHidden=1
+let NERDTreeMapActivateNode='<space>'
 nmap <leader>tt :NERDTreeToggle<CR>
-" locate the focused file in the tree with <leader>j
 nmap <leader>f :NERDTreeFind<CR>
-" always open the tree when booting Vim, but don't focus it
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
-" do not display some useless files in the tree
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
 "surround (allows to use 's' motion) - no config here
