@@ -1,13 +1,3 @@
-"python with virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
-EOF
-
 " based on http://marcgg.com/blog/2016/03/01/vimrc-example/
 " with some additional plugins takes from the top pages of https://vimawesome.com/
 
@@ -23,18 +13,18 @@ colorscheme jellybeans
 set colorcolumn=120
 set textwidth=120
 set number relativenumber
-" let mapleader=" "
 map <leader>s :source ~/.vimrc<CR>
-"something useful
+" hide buffers instead of closing them
 set hidden
+"something useful
 set history=100
-" saves files as is
-set binary
+" do not save dos files as unix files:
+set nobinary
 "indentation
 filetype indent on
 set nowrap
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 set autoindent
@@ -42,6 +32,7 @@ set autoindent
 set hlsearch
 "showcase matching paranthesis
 set showmatch
+set encoding=utf-8
 
 "lightline plugin config
 set laststatus=2
@@ -76,7 +67,13 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
 "surround (allows to use 's' motion) - no config here
 
-"CtrlP - no config here
+"CtrlP :
+" search all the files
+let g:ctrlp_max_files = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|bake|build)$',
+  \ 'file': '\v\.(so|a|d|o)$',
+  \ }
 
 "window-swap - no config here
 
@@ -84,23 +81,20 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
 "vim-markdown - no config here (the only button is <leader>e)
 
-"YouCompleteMe - TODO
-set encoding=utf-8
-" make python autocompletion help tabs go away after you are done
-autocmd CompleteDone * pclose
 
-"my own stuff:
+" My own stuff:
+
+" use system clipboard
+set clipboard=unnamed
 " $ sudo apt install vim-gtk
 " adds +xterm_clipboard so that one can use + and * registers
-" exit insert mode on shift-enter
-:inoremap <S-CR> <Esc>
 " Use :bn, :bp, :b #, :b name, and ctrl-6 to switch between buffers. 
 " I like ctrl-6 myself (alone it switches to the previously used buffer, 
 " or #ctrl-6 switches to buffer number #).
 " Use :ls to list buffers, or a plugin like MiniBufExpl or BufExplorer.
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <leader>l :nohl<CR><C-l>
-" new slipts appear to the right/down
+" new splits appear to the right/down
 set splitbelow
 set splitright
 " press ctrl-d to get into console (press it again to get back into vim)
@@ -115,7 +109,7 @@ nnoremap <silent> [f :exe search('{', "bw")<CR>^
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " save code folds on exit
 autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+autocmd BufWinEnter *.* silent! loadview
 " easier way to go up a line (equivalent to - and to k^)
 nnoremap <leader><CR> -
 " an alternative to backspace
@@ -136,9 +130,9 @@ inoremap <C-S> <Esc>:Update<CR>
 set cursorline
 " <leader>tn - Toggle Numbers - toggle between relative/absolute numbers
 nnoremap <silent> <leader>tn :set relativenumber!<CR>
-" set up folding base on markers
-set foldmethod=marker
-set foldmarker=┏╸,╺┛
+" set up folding
+set foldmethod=syntax
+set foldlevel=1
 " drop the ctrl-p in the insert mode (pastes some garbage)
 inoremap <C-p> <Nop>
 " <F3> will source current file
@@ -147,3 +141,7 @@ nnoremap <F3> :source %<CR>
 nnoremap <S-Y> y$
 nnoremap gb gT
 inoremap <leader>. ->
+
+" make all text bold:
+"highlight MyGroup cterm=bold
+"match MyGroup /./
