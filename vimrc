@@ -52,14 +52,13 @@ filetype plugin on
 
 "NERDtree plugin config
 " hit right key to open a node
-let NERDTreeMapActivateNode='<right>'
+let NERDTreeMapActivateNode='<C-J>'
 " display hidden files
 let NERDTreeShowHidden=1
-" <leader>n shows/hides the tree
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>tt :NERDTreeToggle<CR>
 " locate the focused file in the tree with <leader>j
-nmap <leader>j :NERDTreeFind<CR>
-" always open the tree when booting Vim, but don’t focus it
+nmap <leader>f :NERDTreeFind<CR>
+" always open the tree when booting Vim, but don't focus it
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 " do not display some useless files in the tree
@@ -141,6 +140,11 @@ nnoremap <F3> :source %<CR>
 nnoremap <S-Y> y$
 nnoremap gb gT
 inoremap <leader>. ->
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " make all text bold:
 "highlight MyGroup cterm=bold
