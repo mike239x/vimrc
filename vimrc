@@ -72,6 +72,9 @@ let g:ctrlp_custom_ignore = {
 
 "vim-markdown - no config here (the only button is <leader>e)
 
+"Tagbar
+nmap <silent> <leader>tb :Tagbar<CR>
+nmap <silent> <leader>o :TagbarOpenAutoClose<CR>
 
 " My own stuff:
 
@@ -95,12 +98,6 @@ nnoremap <leader>d :sh<CR>
 " TODO: make 3]f jump 3 tiimes (currently doesn't work)
 nnoremap <silent> ]f <CR>:exe search('{', "w")<CR>^
 nnoremap <silent> [f :exe search('{', "bw")<CR>^
-" for new buffers and new files with .md choose markdown highlighting
-" TODO check if this even works
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-" save code folds on exit
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent! loadview
 " easier way to go up a line (equivalent to - and to k^)
 nnoremap <leader><CR> -
 " an alternative to backspace
@@ -123,7 +120,7 @@ set cursorline
 nnoremap <silent> <leader>tn :set relativenumber!<CR>
 " set up folding
 set foldmethod=syntax
-set foldlevel=1
+set foldlevel=3
 " drop the ctrl-p in the insert mode (pastes some garbage)
 inoremap <C-p> <Nop>
 " <F3> will source current file
@@ -132,6 +129,24 @@ nnoremap <F3> :source %<CR>
 nnoremap <S-Y> y$
 nnoremap gb gT
 inoremap <leader>. ->
+nnoremap yp yyp
+
+" jump between folds
+nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
+nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
+function! NextClosedFold(dir)
+    let cmd = 'norm!z' . a:dir
+    let view = winsaveview()
+    let [l0, l, open] = [0, view.lnum, 1]
+    while l != l0 && open
+        exe cmd
+        let [l0, l] = [l, line('.')]
+        let open = foldclosed(l) < 0
+    endwhile
+    if open
+        call winrestview(view)
+    endif
+endfunction
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -141,3 +156,14 @@ noremap <Right> <NOP>
 " make all text bold:
 "highlight MyGroup cterm=bold
 "match MyGroup /./
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+"syntax match keyword "\<lambda\>" conceal cchar=λ
+"syntax match keyword ">=" conceal cchar=≥
+"syntax match keyword "<=" conceal cchar=≤
+"" TODO add space after ⇒  somehow...
+"syntax match keyword "=>" conceal cchar=⇒
+"syntax match keyword "==" conceal cchar=＝
+"syntax match keyword "!=" conceal cchar=≠
+"set conceallevel=1
