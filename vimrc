@@ -49,6 +49,8 @@ let g:lightline = {
 
 "NERDcommenter plugin config
 filetype plugin on
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 "NERDtree plugin config
 let NERDTreeMapActivateNode='<space>'
@@ -167,3 +169,10 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "syntax match keyword "==" conceal cchar=＝
 "syntax match keyword "!=" conceal cchar=≠
 "set conceallevel=1
+
+" ignore case when searching by default, 
+" toggle with `set ic!`
+set ignorecase
+
+" code formatting for C++
+au FileType cpp setlocal formatexpr= formatprg=clang-format-7\ -style=file
